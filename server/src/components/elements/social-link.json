@@ -1,0 +1,23 @@
+{
+  "collectionName": "components_elements_social_links",
+  "info": {
+    "displayName": "Social Link"
+  },
+  "options": {},
+  "attributes": {
+    "platform": {
+      "type": "string"
+    },
+    "url": {
+      "type": "string"
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
+    }
+  },
+  "config": {}
+}

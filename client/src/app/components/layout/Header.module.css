@@ -1,0 +1,43 @@
+.headerContainer {
+  padding-top: 64px;
+  padding-bottom: 48px;
+}
+
+.navContainer {
+  border-bottom: 1px solid #000;
+}
+
+.logoImage {
+  width: 100%;
+  height: 100%;
+}
+
+.socialIcon {
+  margin-right: 12px;
+}
+
+.navLinks {
+  margin-right: 24px;
+  color: #000;
+  font-size: clamp(16px, 5vw, 20px);
+  font-weight: 400;
+}
+
+.divider {
+  margin-right: 24px;
+  display: flex;
+  justify-content: center;
+}
+
+@media (max-width: 600px) {
+  .navLinks,
+  .divider {
+    margin-right: 0;
+  }
+  .divider {
+    margin: 24px 0;
+  }
+  .navContainer {
+    border: 0;
+  }
+}

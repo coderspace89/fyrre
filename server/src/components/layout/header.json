@@ -1,0 +1,54 @@
+{
+  "collectionName": "components_layout_headers",
+  "info": {
+    "displayName": "Header"
+  },
+  "options": {},
+  "attributes": {
+    "logoText": {
+      "type": "string"
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "navigation": {
+      "type": "component",
+      "conditions": {
+        "visible": {
+          "!=": [
+            {
+              "var": "hideLinksOnHome"
+            },
+            true
+          ]
+        }
+      },
+      "component": "elements.link",
+      "repeatable": true
+    },
+    "socialLinks": {
+      "type": "component",
+      "conditions": {
+        "visible": {
+          "!=": [
+            {
+              "var": "hideLinksOnHome"
+            },
+            true
+          ]
+        }
+      },
+      "component": "elements.social-link",
+      "repeatable": true
+    },
+    "hideLinksOnHome": {
+      "type": "boolean",
+      "default": true
+    }
+  },
+  "config": {}
+}
