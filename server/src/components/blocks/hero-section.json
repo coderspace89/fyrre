@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_blocks_hero_sections",
+  "info": {
+    "displayName": "Hero Section"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "newsTicker": {
+      "type": "component",
+      "component": "blocks.news-ticker",
+      "repeatable": false
+    }
+  },
+  "config": {}
+}

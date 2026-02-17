@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_elements_ticker_items",
+  "info": {
+    "displayName": "Ticker Item"
+  },
+  "options": {},
+  "attributes": {
+    "text": {
+      "type": "string"
+    },
+    "link": {
+      "type": "string"
+    }
+  },
+  "config": {}
+}

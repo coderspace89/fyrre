@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_blocks_news_tickers",
+  "info": {
+    "displayName": "News Ticker"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "tickerItems": {
+      "type": "component",
+      "component": "elements.ticker-item",
+      "repeatable": true
+    },
+    "showTicker": {
+      "type": "boolean",
+      "default": true
+    }
+  },
+  "config": {}
+}
