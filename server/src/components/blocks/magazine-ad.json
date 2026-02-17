@@ -1,0 +1,41 @@
+{
+  "collectionName": "components_blocks_magazine_ads",
+  "info": {
+    "displayName": "Magazine Ad"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "subtitle": {
+      "type": "string"
+    },
+    "issueNumber": {
+      "type": "string"
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "buttonText": {
+      "type": "string"
+    },
+    "buttonLink": {
+      "type": "string"
+    },
+    "calloutLabel": {
+      "type": "string"
+    },
+    "calloutName": {
+      "type": "string"
+    },
+    "calloutType": {
+      "type": "string"
+    }
+  },
+  "config": {}
+}

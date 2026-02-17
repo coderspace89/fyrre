@@ -13,3 +13,21 @@ export function getStrapiMedia(url) {
   // Ensure there is exactly one slash between baseUrl and url
   return `${baseUrl.replace(/\/$/, "")}/${url.replace(/^\//, "")}`;
 }
+
+export function formatDate(dateString) {
+  let date = new Date(dateString);
+  return date.toLocaleString("en-US", {
+    month: "long",
+    day: "numeric",
+    year: "numeric",
+  });
+}
+
+export const slugify = (str) => {
+  return str
+    .toLowerCase()
+    .trim()
+    .replace(/[^\w\s-]/g, "") // Remove special characters (like ')
+    .replace(/[\s_-]+/g, "-") // Replace spaces/underscores with a single hyphen
+    .replace(/^-+|-+$/g, ""); // Trim hyphens from the start and end
+};

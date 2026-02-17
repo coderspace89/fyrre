@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_blocks_newsletter_signups",
+  "info": {
+    "displayName": "Newsletter Signup"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "headline": {
+      "type": "string"
+    },
+    "placeholderText": {
+      "type": "string"
+    },
+    "buttonText": {
+      "type": "string"
+    }
+  },
+  "config": {}
+}

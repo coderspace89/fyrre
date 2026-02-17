@@ -15,6 +15,26 @@
       "type": "component",
       "component": "blocks.hero-section",
       "repeatable": false
+    },
+    "featuredSection": {
+      "type": "component",
+      "component": "blocks.featured-content-section",
+      "repeatable": false
+    },
+    "magazineAd": {
+      "type": "component",
+      "component": "blocks.magazine-ad",
+      "repeatable": false
+    },
+    "popularArticles": {
+      "type": "component",
+      "component": "blocks.popular-articles",
+      "repeatable": false
+    },
+    "newsletterSignup": {
+      "type": "component",
+      "component": "blocks.newsletter-signup",
+      "repeatable": false
     }
   }
 }

@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_blocks_popular_articles",
+  "info": {
+    "displayName": "Popular Articles"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "popularPosts": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::article.article"
+    }
+  },
+  "config": {}
+}

@@ -7,6 +7,8 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import qs from "qs";
 import Link from "next/link";
+import { getStrapiMedia } from "@/lib/utils";
+import Image from "next/image";
 
 const HeroSection = () => {
   const [heroData, setHeroData] = useState(null);
@@ -16,6 +18,7 @@ const HeroSection = () => {
       populate: {
         Hero: {
           populate: {
+            image: true,
             newsTicker: {
               populate: {
                 tickerItems: true,
@@ -40,32 +43,49 @@ const HeroSection = () => {
     fetchHero();
   }, []);
 
+  if (
+    !heroData?.newsTicker?.tickerItems ||
+    heroData.newsTicker.tickerItems.length === 0
+  ) {
+    return null;
+  }
+  const allTickerItems = [
+    ...heroData.newsTicker.tickerItems,
+    ...heroData.newsTicker.tickerItems,
+  ];
+
   return (
-    <section>
+    <section className={heroStyles.container}>
       <Container>
         <Row>
           <Col>
-            <div>
-              <h2>{heroData?.title}</h2>
+            <div className={heroStyles.heroImageContainer}>
+              {heroData?.image && (
+                <Image
+                  src={getStrapiMedia(heroData?.image?.url)}
+                  width={heroData?.image?.width}
+                  height={heroData?.image?.height}
+                  alt={heroData?.image?.name}
+                  className={heroStyles.heroImage}
+                />
+              )}
             </div>
             <div className={heroStyles["news-ticker-container"]}>
               <span className={heroStyles["news-ticker-label"]}>
                 {heroData?.newsTicker?.title}
               </span>
               <div className={heroStyles["news-ticker-wrapper"]}>
-                {heroData?.newsTicker?.tickerItems?.map((tickerItem) => (
-                  <span
-                    key={tickerItem.id}
-                    className={heroStyles["news-ticker-content"]}
-                  >
+                <div className={heroStyles["news-ticker-content"]}>
+                  {allTickerItems.map((tickerItem, index) => (
                     <Link
+                      key={`${tickerItem.id}-${index}`}
                       href={tickerItem.link}
                       className={heroStyles["ticker-item"]}
                     >
                       {tickerItem.text}
                     </Link>
-                  </span>
-                ))}
+                  ))}
+                </div>
               </div>
             </div>
           </Col>

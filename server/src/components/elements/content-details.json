@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_elements_content_details",
+  "info": {
+    "displayName": "Content Details"
+  },
+  "options": {},
+  "attributes": {
+    "author": {
+      "type": "string"
+    },
+    "publicationDate": {
+      "type": "date"
+    },
+    "duration": {
+      "type": "string"
+    },
+    "label": {
+      "type": "string"
+    }
+  },
+  "config": {}
+}

@@ -43,7 +43,7 @@ const Header = () => {
   }, []);
 
   return (
-    <section className={headerStyles.headerContainer}>
+    <section className={`${headerStyles.headerContainer} fixed-top`}>
       <Navbar expand="lg">
         <Container
           className={`container-xxl container-xl container-lg container-md container-sm container ${headerStyles.navContainer}`}

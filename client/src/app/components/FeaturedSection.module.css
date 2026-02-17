@@ -1,0 +1,53 @@
+.container {
+  padding-top: 75px;
+  padding-bottom: 50px;
+}
+
+.detailsItem {
+  margin-right: 24px;
+  font-size: 14px;
+  color: #000;
+}
+
+.detailsItem span {
+  margin-right: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #000;
+}
+
+.description {
+  font-size: clamp(16px, 5vw, 18px);
+  color: #000;
+}
+
+.labelText {
+  font-size: 12px;
+  color: #000;
+  font-weight: 400;
+}
+
+.labelContainer {
+  padding: 5px 10px;
+  border: 1px solid #000;
+  border-radius: 22px;
+}
+
+.descriptionContainer {
+  margin-bottom: 64px;
+}
+
+.mainTitle {
+  font-size: clamp(50px, 5vw, 104px);
+  font-weight: 600;
+  color: #000;
+}
+
+.featuredImage {
+  width: 100%;
+  height: 100%;
+}
+
+.featuredTextContainer {
+  margin-bottom: 48px;
+}

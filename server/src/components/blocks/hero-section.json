@@ -12,6 +12,13 @@
       "type": "component",
       "component": "blocks.news-ticker",
       "repeatable": false
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
     }
   },
   "config": {}

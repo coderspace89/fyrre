@@ -1,12 +1,44 @@
 import type { Schema, Struct } from '@strapi/strapi';
 
+export interface BlocksFeaturedContentSection extends Struct.ComponentSchema {
+  collectionName: 'components_blocks_featured_content_sections';
+  info: {
+    displayName: 'Featured Content Section';
+  };
+  attributes: {
+    description: Schema.Attribute.Text;
+    details: Schema.Attribute.Component<'elements.content-details', false>;
+    image: Schema.Attribute.Media<'images'>;
+    mainTitle: Schema.Attribute.String;
+  };
+}
+
 export interface BlocksHeroSection extends Struct.ComponentSchema {
   collectionName: 'components_blocks_hero_sections';
   info: {
     displayName: 'Hero Section';
   };
   attributes: {
+    image: Schema.Attribute.Media<'images'>;
     newsTicker: Schema.Attribute.Component<'blocks.news-ticker', false>;
+    title: Schema.Attribute.String;
+  };
+}
+
+export interface BlocksMagazineAd extends Struct.ComponentSchema {
+  collectionName: 'components_blocks_magazine_ads';
+  info: {
+    displayName: 'Magazine Ad';
+  };
+  attributes: {
+    buttonLink: Schema.Attribute.String;
+    buttonText: Schema.Attribute.String;
+    calloutLabel: Schema.Attribute.String;
+    calloutName: Schema.Attribute.String;
+    calloutType: Schema.Attribute.String;
+    image: Schema.Attribute.Media<'images'>;
+    issueNumber: Schema.Attribute.String;
+    subtitle: Schema.Attribute.String;
     title: Schema.Attribute.String;
   };
 }
@@ -20,6 +52,46 @@ export interface BlocksNewsTicker extends Struct.ComponentSchema {
     showTicker: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
     tickerItems: Schema.Attribute.Component<'elements.ticker-item', true>;
     title: Schema.Attribute.String;
+  };
+}
+
+export interface BlocksNewsletterSignup extends Struct.ComponentSchema {
+  collectionName: 'components_blocks_newsletter_signups';
+  info: {
+    displayName: 'Newsletter Signup';
+  };
+  attributes: {
+    buttonText: Schema.Attribute.String;
+    headline: Schema.Attribute.String;
+    placeholderText: Schema.Attribute.String;
+    title: Schema.Attribute.String;
+  };
+}
+
+export interface BlocksPopularArticles extends Struct.ComponentSchema {
+  collectionName: 'components_blocks_popular_articles';
+  info: {
+    displayName: 'Popular Articles';
+  };
+  attributes: {
+    popularPosts: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::article.article'
+    >;
+    title: Schema.Attribute.String;
+  };
+}
+
+export interface ElementsContentDetails extends Struct.ComponentSchema {
+  collectionName: 'components_elements_content_details';
+  info: {
+    displayName: 'Content Details';
+  };
+  attributes: {
+    author: Schema.Attribute.String;
+    duration: Schema.Attribute.String;
+    label: Schema.Attribute.String;
+    publicationDate: Schema.Attribute.Date;
   };
 }
 
@@ -75,8 +147,13 @@ export interface LayoutHeader extends Struct.ComponentSchema {
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
+      'blocks.featured-content-section': BlocksFeaturedContentSection;
       'blocks.hero-section': BlocksHeroSection;
+      'blocks.magazine-ad': BlocksMagazineAd;
       'blocks.news-ticker': BlocksNewsTicker;
+      'blocks.newsletter-signup': BlocksNewsletterSignup;
+      'blocks.popular-articles': BlocksPopularArticles;
+      'elements.content-details': ElementsContentDetails;
       'elements.link': ElementsLink;
       'elements.social-link': ElementsSocialLink;
       'elements.ticker-item': ElementsTickerItem;

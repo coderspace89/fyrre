@@ -1,0 +1,28 @@
+{
+  "collectionName": "components_blocks_featured_content_sections",
+  "info": {
+    "displayName": "Featured Content Section"
+  },
+  "options": {},
+  "attributes": {
+    "mainTitle": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "details": {
+      "type": "component",
+      "component": "elements.content-details",
+      "repeatable": false
+    }
+  },
+  "config": {}
+}
