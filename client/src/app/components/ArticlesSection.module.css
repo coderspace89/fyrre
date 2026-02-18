@@ -1,0 +1,224 @@
+.container {
+  padding-top: 50px;
+  padding-bottom: 96px;
+}
+
+.articleImage {
+  width: 100%;
+  height: 100%;
+}
+
+.articleRow {
+  margin-bottom: 48px;
+  border-bottom: 1px solid #000;
+  padding-bottom: 48px;
+}
+
+.articleRow:last-child {
+  border-bottom: 0;
+}
+
+.detailsItem {
+  margin-right: 24px;
+  font-size: 14px;
+  color: #000;
+}
+
+.detailsItem span {
+  margin-right: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #000;
+}
+
+.labelText {
+  font-size: 12px;
+  color: #000;
+  font-weight: 400;
+  text-transform: uppercase;
+}
+
+.labelContainer {
+  padding: 5px 10px;
+  border: 1px solid #000;
+  border-radius: 22px;
+}
+
+.descriptionContainer {
+  margin-bottom: 64px;
+}
+
+.articleTitle {
+  font-size: clamp(24px, 5vw, 32px);
+  font-weight: 600;
+  color: #000;
+  margin-bottom: 12px;
+}
+
+.articleDescription {
+  font-size: 16px;
+  color: #000;
+  font-weight: 400;
+}
+
+.exclusive-badge {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background-color: #ecc584;
+  color: #fff;
+  text-align: center;
+  padding: 10px;
+  box-sizing: border-box;
+  position: relative;
+  overflow: hidden;
+}
+
+.exclusive-badge .badge-label {
+  font-size: 10px;
+  font-weight: bold;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  margin: 5px 0;
+  position: absolute;
+  top: 15px;
+  left: 45%;
+  transform: translateX(-45%) rotate(-10deg);
+  transform-origin: center center;
+  white-space: nowrap;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.exclusive-badge .badge-name {
+  font-size: 16px;
+  font-weight: bold;
+  line-height: 1.2;
+  text-transform: uppercase;
+  margin-top: 15px;
+  margin-bottom: 5px;
+  z-index: 2;
+  position: absolute;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%) rotate(-10deg);
+  transform-origin: center center;
+  pointer-events: none;
+}
+
+.exclusive-badge .badge-divider {
+  width: 40px;
+  height: 1px;
+  background-color: #fff;
+  margin-bottom: 5px;
+  z-index: 2;
+  position: absolute;
+  top: 80px;
+  left: 50%;
+  transform: translateX(-50%) rotate(-10deg);
+  transform-origin: center center;
+  white-space: nowrap;
+  pointer-events: none;
+}
+
+.exclusive-badge .badge-type {
+  font-size: 12px;
+  font-weight: normal;
+  text-transform: uppercase;
+  z-index: 2;
+  position: absolute;
+  top: 85px;
+  left: 55%;
+  transform: translateX(-55%) rotate(-10deg);
+  transform-origin: center center;
+  white-space: nowrap;
+  pointer-events: none;
+}
+
+.magazineTitle {
+  text-transform: uppercase;
+  font-size: 16px;
+  font-weight: 600;
+  color: #000;
+  margin-bottom: 8px;
+}
+
+.magazineIssue {
+  font-size: clamp(32px, 5vw, 48px);
+  font-weight: 600;
+  color: #000;
+  margin-bottom: 32px;
+}
+
+.magazineName {
+  font-size: clamp(48px, 5vw, 96px);
+  font-weight: 600;
+  color: #fff;
+  margin-bottom: 0;
+}
+.magazineSubname {
+  font-size: clamp(18px, 5vw, 23px);
+  font-weight: 600;
+  color: #fff;
+  text-transform: uppercase;
+}
+
+.magazineBtn {
+  background-color: #000;
+  border-radius: 0;
+  padding: 15px 24px;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.magazineAdContainer {
+  margin-bottom: 64px;
+}
+
+.popularListNumber {
+  font-weight: 600;
+  color: #000;
+  font-size: clamp(18px, 5vw, 24px);
+  margin-right: 16px;
+}
+
+.postTitle {
+  font-weight: 600;
+  color: #000;
+  font-size: clamp(18px, 5vw, 24px);
+  margin-bottom: 16px;
+}
+
+.authorText {
+  font-size: 14px;
+  color: #000;
+  font-weight: 400;
+  margin-bottom: 24px;
+}
+
+.authorText span {
+  font-weight: 600;
+  margin-right: 8px;
+}
+
+.postsContainer {
+  margin-bottom: 24px;
+  border-bottom: 1px solid #000;
+}
+
+.postsContainer:last-child {
+  border-bottom: 0;
+}
+
+.popularTitle {
+  text-transform: uppercase;
+  font-size: 16px;
+  font-weight: 600;
+  color: #000;
+  margin-bottom: 32px;
+}
