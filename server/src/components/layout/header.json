@@ -17,37 +17,13 @@
     },
     "navigation": {
       "type": "component",
-      "conditions": {
-        "visible": {
-          "!=": [
-            {
-              "var": "hideLinksOnHome"
-            },
-            true
-          ]
-        }
-      },
       "component": "elements.link",
       "repeatable": true
     },
     "socialLinks": {
       "type": "component",
-      "conditions": {
-        "visible": {
-          "!=": [
-            {
-              "var": "hideLinksOnHome"
-            },
-            true
-          ]
-        }
-      },
       "component": "elements.social-link",
       "repeatable": true
-    },
-    "hideLinksOnHome": {
-      "type": "boolean",
-      "default": true
     }
   },
   "config": {}

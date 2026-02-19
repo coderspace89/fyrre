@@ -35,6 +35,11 @@
       "type": "component",
       "component": "blocks.newsletter-signup",
       "repeatable": false
+    },
+    "podcastSection": {
+      "type": "component",
+      "component": "blocks.podcast-section",
+      "repeatable": false
     }
   }
 }

@@ -68,6 +68,18 @@ export interface BlocksNewsletterSignup extends Struct.ComponentSchema {
   };
 }
 
+export interface BlocksPodcastSection extends Struct.ComponentSchema {
+  collectionName: 'components_blocks_podcast_sections';
+  info: {
+    displayName: 'Podcast Section';
+  };
+  attributes: {
+    title: Schema.Attribute.String;
+    viewAllLink: Schema.Attribute.String;
+    viewAllText: Schema.Attribute.String;
+  };
+}
+
 export interface BlocksPopularArticles extends Struct.ComponentSchema {
   collectionName: 'components_blocks_popular_articles';
   info: {
@@ -135,8 +147,6 @@ export interface LayoutHeader extends Struct.ComponentSchema {
     displayName: 'Header';
   };
   attributes: {
-    hideLinksOnHome: Schema.Attribute.Boolean &
-      Schema.Attribute.DefaultTo<true>;
     image: Schema.Attribute.Media<'images'>;
     logoText: Schema.Attribute.String;
     navigation: Schema.Attribute.Component<'elements.link', true>;
@@ -152,6 +162,7 @@ declare module '@strapi/strapi' {
       'blocks.magazine-ad': BlocksMagazineAd;
       'blocks.news-ticker': BlocksNewsTicker;
       'blocks.newsletter-signup': BlocksNewsletterSignup;
+      'blocks.podcast-section': BlocksPodcastSection;
       'blocks.popular-articles': BlocksPopularArticles;
       'elements.content-details': ElementsContentDetails;
       'elements.link': ElementsLink;

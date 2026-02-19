@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_blocks_podcast_sections",
+  "info": {
+    "displayName": "Podcast Section"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "viewAllText": {
+      "type": "string"
+    },
+    "viewAllLink": {
+      "type": "string"
+    }
+  },
+  "config": {}
+}

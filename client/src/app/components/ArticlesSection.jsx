@@ -10,6 +10,7 @@ import Image from "next/image";
 import { formatDate, getStrapiMedia } from "@/lib/utils";
 import Link from "next/link";
 import Button from "react-bootstrap/Button";
+import Form from "react-bootstrap/Form";
 
 const ArticlesSection = () => {
   const [articlesData, setArticlesData] = useState([]);
@@ -135,6 +136,25 @@ const ArticlesSection = () => {
                 </Link>
               </div>
             ))}
+            <div>
+              <Link href="/magazine" className={articlesStyles.viewAllLink}>
+                All articles{" "}
+                <span>
+                  <svg
+                    width="16"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M16.172 11.0002L10.808 5.63617L12.222 4.22217L20 12.0002L12.222 19.7782L10.808 18.3642L16.172 13.0002H4V11.0002H16.172Z"
+                      fill="black"
+                    />
+                  </svg>
+                </span>
+              </Link>
+            </div>
           </Col>
           <Col lg={3}>
             <div className={articlesStyles.magazineAdContainer}>
@@ -222,7 +242,7 @@ const ArticlesSection = () => {
                 </Button>
               </div>
             </div>
-            <div>
+            <div className={articlesStyles.popularArticlesContainer}>
               <div>
                 <h6 className={articlesStyles.popularTitle}>
                   {sideblocksData?.popularArticles?.title}
@@ -231,31 +251,57 @@ const ArticlesSection = () => {
               <div>
                 {sideblocksData?.popularArticles?.popularPosts?.map(
                   (post, index) => (
-                    <Link
+                    <div
                       key={post.id}
-                      href={`magazine/${post?.slug}`}
-                      className="text-decoration-none"
+                      className={articlesStyles.postsContainer}
                     >
-                      <div
-                        className={`${articlesStyles.postsContainer} d-flex align-items-start justify-content-start`}
+                      <Link
+                        href={`magazine/${post?.slug}`}
+                        className="text-decoration-none"
                       >
-                        <div>
-                          <h4 className={articlesStyles.popularListNumber}>
-                            0{index + 1}
-                          </h4>
+                        <div className="d-flex align-items-start justify-content-start">
+                          <div>
+                            <h4 className={articlesStyles.popularListNumber}>
+                              0{index + 1}
+                            </h4>
+                          </div>
+                          <div>
+                            <h2 className={articlesStyles.postTitle}>
+                              {post?.title}
+                            </h2>
+                            <p className={articlesStyles.authorText}>
+                              <span>Text</span> {post?.author}
+                            </p>
+                          </div>
                         </div>
-                        <div>
-                          <h2 className={articlesStyles.postTitle}>
-                            {post?.title}
-                          </h2>
-                          <p className={articlesStyles.authorText}>
-                            <span>Text</span> {post?.author}
-                          </p>
-                        </div>
-                      </div>
-                    </Link>
+                      </Link>
+                    </div>
                   ),
                 )}
+              </div>
+            </div>
+            <div className={articlesStyles.newsletterContainer}>
+              <div>
+                <h6 className={articlesStyles.newsletterTitle}>
+                  {sideblocksData?.newsletterSignup?.title}
+                </h6>
+                <h2 className={articlesStyles.newsletterHeadline}>
+                  {sideblocksData?.newsletterSignup?.headline}
+                </h2>
+              </div>
+              <Form className={articlesStyles.newsletterFormContainer}>
+                <Form.Control
+                  type="email"
+                  placeholder={
+                    sideblocksData?.newsletterSignup?.placeholderText
+                  }
+                  className={articlesStyles.newsletterInput}
+                />
+              </Form>
+              <div className="text-end">
+                <Button variant="dark" className={articlesStyles.magazineBtn}>
+                  {sideblocksData?.newsletterSignup?.buttonText}
+                </Button>
               </div>
             </div>
           </Col>

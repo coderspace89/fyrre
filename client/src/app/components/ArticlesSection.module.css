@@ -222,3 +222,55 @@
   color: #000;
   margin-bottom: 32px;
 }
+
+.popularArticlesContainer {
+  margin-bottom: 64px;
+}
+
+.newsletterContainer {
+  background-color: #f8f8f8;
+  padding: 20px;
+}
+
+.newsletterInput {
+  border-radius: 0;
+  padding-left: 15px;
+  padding-right: 15px;
+  color: #000;
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.newsletterInput::placeholder {
+  color: rgba(0, 0, 0, 0.6);
+}
+
+.newsletterFormContainer {
+  margin-bottom: 12px;
+}
+
+.newsletterTitle {
+  text-transform: uppercase;
+  font-size: 16px;
+  font-weight: 600;
+  color: #000;
+  margin-bottom: 8px;
+}
+
+.newsletterHeadline {
+  font-size: clamp(24px, 5vw, 32px);
+  font-weight: 600;
+  color: #000;
+  margin-bottom: 16px;
+}
+.viewAllLink {
+  text-decoration: none;
+  text-transform: uppercase;
+  color: #000;
+  font-weight: 600;
+  font-size: 16px;
+}
+
+.viewAllLink span {
+  margin-left: 4px;
+}

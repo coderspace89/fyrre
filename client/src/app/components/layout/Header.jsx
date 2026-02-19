@@ -9,6 +9,7 @@ import qs from "qs";
 import Image from "next/image";
 import { getStrapiMedia } from "@/lib/utils";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 const Header = () => {
   const [headerData, setHeaderData] = useState(null);
@@ -42,6 +43,8 @@ const Header = () => {
     fetchHeader();
   }, []);
 
+  const pathname = usePathname();
+
   return (
     <section className={`${headerStyles.headerContainer} fixed-top`}>
       <Navbar expand="lg">
@@ -63,19 +66,20 @@ const Header = () => {
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="ms-auto">
               <div className="d-flex flex-lg-row flex-column justify-content-center align-items-center">
-                {!headerData?.hideLinksOnHome &&
-                  headerData?.navigation?.map((navItem) => (
-                    <Nav.Link
-                      key={navItem.id}
-                      href={navItem.url}
-                      className={headerStyles.navLinks}
-                    >
-                      {navItem.label}
-                    </Nav.Link>
-                  ))}
+                {pathname !== "/"
+                  ? headerData?.navigation?.map((navItem) => (
+                      <Nav.Link
+                        key={navItem.id}
+                        href={navItem.url}
+                        className={headerStyles.navLinks}
+                      >
+                        {navItem.label}
+                      </Nav.Link>
+                    ))
+                  : ""}
               </div>
             </Nav>
-            {!headerData?.hideLinksOnHome && (
+            {pathname !== "/" ? (
               <div className={headerStyles.divider}>
                 <svg
                   width="15"
@@ -87,24 +91,27 @@ const Header = () => {
                   <rect width="15" height="1" fill="black" />
                 </svg>
               </div>
+            ) : (
+              ""
             )}
             <div className="d-flex justify-content-center">
-              {!headerData?.hideLinksOnHome &&
-                headerData?.socialLinks?.map((socialLink) => (
-                  <div key={socialLink.id}>
-                    {socialLink?.image && (
-                      <Link href={socialLink?.url}>
-                        <Image
-                          src={getStrapiMedia(socialLink?.image?.url)}
-                          width={socialLink?.image?.width}
-                          height={socialLink?.image?.height}
-                          alt={socialLink?.image?.name}
-                          className={headerStyles.socialIcon}
-                        />
-                      </Link>
-                    )}
-                  </div>
-                ))}
+              {pathname !== "/"
+                ? headerData?.socialLinks?.map((socialLink) => (
+                    <div key={socialLink.id}>
+                      {socialLink?.image && (
+                        <Link href={socialLink?.url}>
+                          <Image
+                            src={getStrapiMedia(socialLink?.image?.url)}
+                            width={socialLink?.image?.width}
+                            height={socialLink?.image?.height}
+                            alt={socialLink?.image?.name}
+                            className={headerStyles.socialIcon}
+                          />
+                        </Link>
+                      )}
+                    </div>
+                  ))
+                : ""}
             </div>
           </Navbar.Collapse>
         </Container>
