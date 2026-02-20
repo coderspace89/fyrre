@@ -3,6 +3,7 @@ import HeroSection from "./components/HeroSection";
 import FeaturedSection from "./components/FeaturedSection";
 import ArticlesSection from "./components/ArticlesSection";
 import PodcastSection from "./components/PodcastSection";
+import AuthorSection from "./components/AuthorSection";
 
 const page = () => {
   return (
@@ -11,6 +12,7 @@ const page = () => {
       <FeaturedSection />
       <ArticlesSection />
       <PodcastSection />
+      <AuthorSection />
     </div>
   );
 };

@@ -65,11 +65,16 @@ const PodcastSection = () => {
   return (
     <section className={podcastStyles.container}>
       <Container className={podcastStyles.containerRow}>
-        <Row>
+        <Row className={podcastStyles.sectionTitleContainer}>
           <Col lg={12}>
             <div className="d-flex align-items-center justify-content-between">
-              <h2>{sectionHeaderData?.title}</h2>
-              <Link href={sectionHeaderData?.viewAllLink || "/podcast"}>
+              <h2 className={podcastStyles.sectionTitle}>
+                {sectionHeaderData?.title}
+              </h2>
+              <Link
+                href={sectionHeaderData?.viewAllLink || "/podcast"}
+                className={podcastStyles.viewAllLink}
+              >
                 {sectionHeaderData?.viewAllText}
                 <span>
                   <svg
@@ -91,22 +96,82 @@ const PodcastSection = () => {
         </Row>
         <Row>
           {podcastData?.map((podcast) => (
-            <Col lg={4} key={podcast.id}>
+            <Col lg={4} key={podcast.id} className={podcastStyles.podcastCard}>
               <div>
-                <div>
-                  {podcast?.image && (
-                    <Image
-                      src={getStrapiMedia(podcast.image?.url)}
-                      width={podcast?.image?.width}
-                      height={podcast?.image?.height}
-                      alt={podcast?.image?.name}
-                      className={podcastStyles.podcastImage}
-                    />
-                  )}
-                </div>
-                <div>
-                  <h3>{podcast?.title}</h3>
-                </div>
+                <Link
+                  href={`podcast/${podcast?.slug}`}
+                  className="text-decoration-none"
+                >
+                  <div className={podcastStyles.podcastImageContainer}>
+                    {podcast?.image && (
+                      <Image
+                        src={getStrapiMedia(podcast.image?.url)}
+                        width={podcast?.image?.width}
+                        height={podcast?.image?.height}
+                        alt={podcast?.image?.name}
+                        className={podcastStyles.podcastImage}
+                      />
+                    )}
+                    <div
+                      className={`${podcastStyles.imageTextContainer} position-absolute top-0 start-0`}
+                    >
+                      <h2 className={podcastStyles.imageHeading}>Fyrre</h2>
+                      <h4 className={podcastStyles.imageSubheading}>Podcast</h4>
+                    </div>
+                    <div
+                      className={`${podcastStyles.imageTextContainer} position-absolute bottom-0 start-0`}
+                    >
+                      <span className={podcastStyles.episodeText}>
+                        {podcast?.episodeNumber}
+                      </span>
+                    </div>
+                    <div
+                      className={`${podcastStyles.imageTextContainer} position-absolute bottom-0 end-0`}
+                    >
+                      <svg
+                        width="51"
+                        height="51"
+                        viewBox="0 0 51 51"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <rect
+                          y="47.314"
+                          width="50.7325"
+                          height="3.38217"
+                          fill="white"
+                        />
+                        <rect
+                          x="47.3135"
+                          width="3.38217"
+                          height="50.7325"
+                          fill="white"
+                        />
+                        <rect
+                          x="4.06982"
+                          y="6.61377"
+                          width="3.38217"
+                          height="62.5559"
+                          transform="rotate(-45 4.06982 6.61377)"
+                          fill="white"
+                        />
+                      </svg>
+                    </div>
+                  </div>
+                  <div>
+                    <h3 className={podcastStyles.podcastTitle}>
+                      {podcast?.title}
+                    </h3>
+                  </div>
+                  <div>
+                    <span className={podcastStyles.dateTextContainer}>
+                      <span>Date</span> {formatDate(podcast?.publicationDate)}
+                    </span>
+                    <span className={podcastStyles.durationTextContainer}>
+                      <span>Duration</span> {podcast?.duration}
+                    </span>
+                  </div>
+                </Link>
               </div>
             </Col>
           ))}

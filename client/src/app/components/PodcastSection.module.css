@@ -11,3 +11,96 @@
   width: 100%;
   height: 100%;
 }
+
+.podcastImageContainer {
+  position: relative;
+  margin-bottom: 32px;
+}
+
+.podcastCard {
+  border: 1px solid #000;
+  padding: 48px;
+}
+
+.sectionTitleContainer {
+  padding-bottom: 48px;
+}
+
+.dateTextContainer {
+  margin-right: 16px;
+  font-size: 14px;
+  font-weight: 400;
+  color: #000;
+}
+
+.dateTextContainer span {
+  margin-right: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #000;
+}
+
+.durationTextContainer {
+  font-size: 14px;
+  font-weight: 400;
+  color: #000;
+}
+
+.durationTextContainer span {
+  font-size: 14px;
+  font-weight: 600;
+  color: #000;
+  margin-right: 8px;
+}
+
+.podcastTitle {
+  font-size: clamp(24px, 5vw, 32px);
+  font-weight: 600;
+  color: #000;
+  margin-bottom: 48px;
+}
+
+.imageTextContainer {
+  padding: 20px;
+}
+
+.imageHeading {
+  color: #fff;
+  font-size: clamp(25px, 5vw, 50px);
+  font-weight: 600;
+  margin-bottom: 0;
+  text-transform: uppercase;
+}
+
+.imageSubheading {
+  color: #fff;
+  font-size: clamp(20px, 5vw, 25px);
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.episodeText {
+  color: #fff;
+  font-size: clamp(20px, 5vw, 25px);
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.sectionTitle {
+  font-size: clamp(50px, 5vw, 104px);
+  color: #000;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.viewAllLink {
+  text-decoration: none;
+  text-transform: uppercase;
+  color: #000;
+  font-weight: 600;
+  font-size: 16px;
+}
+
+.viewAllLink span {
+  margin-left: 4px;
+}

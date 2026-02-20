@@ -1,5 +1,17 @@
 import type { Schema, Struct } from '@strapi/strapi';
 
+export interface BlocksAuthorSection extends Struct.ComponentSchema {
+  collectionName: 'components_blocks_author_sections';
+  info: {
+    displayName: 'Author Section';
+  };
+  attributes: {
+    sectionTitle: Schema.Attribute.String;
+    viewAllLink: Schema.Attribute.String;
+    viewAllText: Schema.Attribute.String;
+  };
+}
+
 export interface BlocksFeaturedContentSection extends Struct.ComponentSchema {
   collectionName: 'components_blocks_featured_content_sections';
   info: {
@@ -157,6 +169,7 @@ export interface LayoutHeader extends Struct.ComponentSchema {
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
+      'blocks.author-section': BlocksAuthorSection;
       'blocks.featured-content-section': BlocksFeaturedContentSection;
       'blocks.hero-section': BlocksHeroSection;
       'blocks.magazine-ad': BlocksMagazineAd;

@@ -40,6 +40,11 @@
       "type": "component",
       "component": "blocks.podcast-section",
       "repeatable": false
+    },
+    "authorSection": {
+      "type": "component",
+      "component": "blocks.author-section",
+      "repeatable": false
     }
   }
 }

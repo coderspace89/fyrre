@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_blocks_author_sections",
+  "info": {
+    "displayName": "Author Section"
+  },
+  "options": {},
+  "attributes": {
+    "sectionTitle": {
+      "type": "string"
+    },
+    "viewAllText": {
+      "type": "string"
+    },
+    "viewAllLink": {
+      "type": "string"
+    }
+  },
+  "config": {}
+}
