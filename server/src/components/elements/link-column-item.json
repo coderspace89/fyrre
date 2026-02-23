@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_elements_link_column_items",
+  "info": {
+    "displayName": "Link Column Item"
+  },
+  "options": {},
+  "attributes": {
+    "text": {
+      "type": "string"
+    },
+    "url": {
+      "type": "string"
+    }
+  },
+  "config": {}
+}

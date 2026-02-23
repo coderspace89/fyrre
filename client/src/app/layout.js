@@ -2,6 +2,7 @@ import localFont from "next/font/local";
 import "./globals.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Header from "./components/layout/Header";
+import Footer from "./components/layout/Footer";
 
 const myFont = localFont({
   src: [
@@ -39,6 +40,7 @@ export default function RootLayout({ children }) {
       <body className={myFont.className}>
         <Header />
         {children}
+        <Footer />
       </body>
     </html>
   );

@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_blocks_footer_newsletters",
+  "info": {
+    "displayName": "Footer Newsletter"
+  },
+  "options": {},
+  "attributes": {
+    "scrollingText": {
+      "type": "string"
+    },
+    "headline": {
+      "type": "string"
+    },
+    "emailPlaceholder": {
+      "type": "string"
+    },
+    "buttonText": {
+      "type": "string"
+    }
+  },
+  "config": {}
+}

@@ -1,0 +1,64 @@
+.container {
+  padding-bottom: 96px;
+}
+
+.containerRow {
+  border-top: 1px solid #000;
+  padding-top: 48px;
+}
+
+.sectionTitleContainer {
+  padding-bottom: 48px;
+}
+
+.sectionTitle {
+  font-size: clamp(50px, 5vw, 104px);
+  color: #000;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.viewAllLink {
+  text-decoration: none;
+  text-transform: uppercase;
+  color: #000;
+  font-weight: 600;
+  font-size: 16px;
+}
+
+.viewAllLink span {
+  margin-left: 4px;
+}
+
+.authorImage {
+  margin-right: 48px;
+}
+
+.borderContainer {
+  border: 1px solid #000;
+  padding: 32px;
+}
+
+.authorText {
+  font-size: 14px;
+  color: #000;
+  font-weight: 600;
+  margin-right: 8px;
+}
+
+.authorTextContainer {
+  margin-right: 32px;
+}
+
+.authorDynamicText {
+  font-size: 14px;
+  color: #000;
+  font-weight: 400;
+}
+
+.authorName {
+  font-size: clamp(24px, 5vw, 32px);
+  font-weight: 600;
+  color: #000;
+  margin-bottom: 16px;
+}

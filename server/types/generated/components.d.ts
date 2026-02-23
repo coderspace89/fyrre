@@ -25,6 +25,36 @@ export interface BlocksFeaturedContentSection extends Struct.ComponentSchema {
   };
 }
 
+export interface BlocksFooter extends Struct.ComponentSchema {
+  collectionName: 'components_blocks_footers';
+  info: {
+    displayName: 'Footer';
+  };
+  attributes: {
+    copyrightText: Schema.Attribute.String;
+    mainFooterTitle: Schema.Attribute.String;
+    navigationColumns: Schema.Attribute.Component<'elements.link-column', true>;
+    newsletterSection: Schema.Attribute.Component<
+      'blocks.footer-newsletter',
+      false
+    >;
+    socialLinks: Schema.Attribute.Component<'elements.social-link', true>;
+  };
+}
+
+export interface BlocksFooterNewsletter extends Struct.ComponentSchema {
+  collectionName: 'components_blocks_footer_newsletters';
+  info: {
+    displayName: 'Footer Newsletter';
+  };
+  attributes: {
+    buttonText: Schema.Attribute.String;
+    emailPlaceholder: Schema.Attribute.String;
+    headline: Schema.Attribute.String;
+    scrollingText: Schema.Attribute.String;
+  };
+}
+
 export interface BlocksHeroSection extends Struct.ComponentSchema {
   collectionName: 'components_blocks_hero_sections';
   info: {
@@ -130,6 +160,27 @@ export interface ElementsLink extends Struct.ComponentSchema {
   };
 }
 
+export interface ElementsLinkColumn extends Struct.ComponentSchema {
+  collectionName: 'components_elements_link_columns';
+  info: {
+    displayName: 'Link Column';
+  };
+  attributes: {
+    links: Schema.Attribute.Component<'elements.link-column-item', true>;
+  };
+}
+
+export interface ElementsLinkColumnItem extends Struct.ComponentSchema {
+  collectionName: 'components_elements_link_column_items';
+  info: {
+    displayName: 'Link Column Item';
+  };
+  attributes: {
+    text: Schema.Attribute.String;
+    url: Schema.Attribute.String;
+  };
+}
+
 export interface ElementsSocialLink extends Struct.ComponentSchema {
   collectionName: 'components_elements_social_links';
   info: {
@@ -171,6 +222,8 @@ declare module '@strapi/strapi' {
     export interface ComponentSchemas {
       'blocks.author-section': BlocksAuthorSection;
       'blocks.featured-content-section': BlocksFeaturedContentSection;
+      'blocks.footer': BlocksFooter;
+      'blocks.footer-newsletter': BlocksFooterNewsletter;
       'blocks.hero-section': BlocksHeroSection;
       'blocks.magazine-ad': BlocksMagazineAd;
       'blocks.news-ticker': BlocksNewsTicker;
@@ -179,6 +232,8 @@ declare module '@strapi/strapi' {
       'blocks.popular-articles': BlocksPopularArticles;
       'elements.content-details': ElementsContentDetails;
       'elements.link': ElementsLink;
+      'elements.link-column': ElementsLinkColumn;
+      'elements.link-column-item': ElementsLinkColumnItem;
       'elements.social-link': ElementsSocialLink;
       'elements.ticker-item': ElementsTickerItem;
       'layout.header': LayoutHeader;
