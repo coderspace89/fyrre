@@ -1,0 +1,31 @@
+{
+  "collectionName": "components_blocks_magazine_page_headers",
+  "info": {
+    "displayName": "Magazine Page Header"
+  },
+  "options": {},
+  "attributes": {
+    "pageTitle": {
+      "type": "string"
+    },
+    "categoriesLabel": {
+      "type": "string"
+    },
+    "defaultCategoryFilterText": {
+      "type": "string"
+    },
+    "filterableCategories": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::category.category"
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
+    }
+  },
+  "config": {}
+}

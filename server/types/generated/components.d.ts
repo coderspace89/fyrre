@@ -85,6 +85,23 @@ export interface BlocksMagazineAd extends Struct.ComponentSchema {
   };
 }
 
+export interface BlocksMagazinePageHeader extends Struct.ComponentSchema {
+  collectionName: 'components_blocks_magazine_page_headers';
+  info: {
+    displayName: 'Magazine Page Header';
+  };
+  attributes: {
+    categoriesLabel: Schema.Attribute.String;
+    defaultCategoryFilterText: Schema.Attribute.String;
+    filterableCategories: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::category.category'
+    >;
+    image: Schema.Attribute.Media<'images'>;
+    pageTitle: Schema.Attribute.String;
+  };
+}
+
 export interface BlocksNewsTicker extends Struct.ComponentSchema {
   collectionName: 'components_blocks_news_tickers';
   info: {
@@ -226,6 +243,7 @@ declare module '@strapi/strapi' {
       'blocks.footer-newsletter': BlocksFooterNewsletter;
       'blocks.hero-section': BlocksHeroSection;
       'blocks.magazine-ad': BlocksMagazineAd;
+      'blocks.magazine-page-header': BlocksMagazinePageHeader;
       'blocks.news-ticker': BlocksNewsTicker;
       'blocks.newsletter-signup': BlocksNewsletterSignup;
       'blocks.podcast-section': BlocksPodcastSection;

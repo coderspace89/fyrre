@@ -24,9 +24,6 @@
         "images"
       ]
     },
-    "author": {
-      "type": "string"
-    },
     "publicationDate": {
       "type": "date"
     },
@@ -44,6 +41,12 @@
       "type": "relation",
       "relation": "oneToOne",
       "target": "api::category.category"
+    },
+    "author": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::author.author",
+      "inversedBy": "articles"
     }
   }
 }

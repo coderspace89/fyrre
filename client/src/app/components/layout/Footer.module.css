@@ -61,6 +61,7 @@
   color: #000;
   font-size: 16px;
   font-weight: 400;
+  width: 100%;
 }
 
 .inputContainer {
@@ -108,4 +109,41 @@
 
 .iconImage {
   margin-right: 12px;
+}
+
+.iconImageContainer:last-child .iconImage {
+  margin-right: 0;
+}
+
+.linkText {
+  font-size: 16px;
+  font-weight: 400;
+  text-decoration: none;
+  color: #fff;
+}
+
+.copyrightText {
+  color: #fff;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.copyrightContainer {
+  padding-bottom: 65px;
+}
+
+@media (max-width: 768px) {
+  .newsletterContainer {
+    padding: 64px 0;
+  }
+  .navigationContainer {
+    padding-bottom: 48px;
+  }
+  .copyrightContainer {
+    padding-bottom: 32.5px;
+  }
+  .formInput {
+    width: 100%;
+    margin-bottom: 10px;
+  }
 }

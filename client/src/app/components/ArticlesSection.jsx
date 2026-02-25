@@ -42,11 +42,12 @@ const ArticlesSection = () => {
       populate: {
         image: true,
         category: true,
+        author: true,
       },
-      sort: ["publicationDate:desc"],
+      sort: ["createdAt:asc"],
       pagination: {
         page: 1,
-        pageSize: 10,
+        pageSize: 6,
       },
     },
     {
@@ -114,7 +115,7 @@ const ArticlesSection = () => {
                         <div>
                           <span className={articlesStyles.detailsItem}>
                             <span>Text</span>
-                            {article?.author}
+                            {article?.author?.fullName}
                           </span>
                           <span className={articlesStyles.detailsItem}>
                             <span>Date</span>{" "}

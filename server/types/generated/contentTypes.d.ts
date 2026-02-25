@@ -441,7 +441,7 @@ export interface ApiArticleArticle extends Struct.CollectionTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
-    author: Schema.Attribute.String;
+    author: Schema.Attribute.Relation<'manyToOne', 'api::author.author'>;
     category: Schema.Attribute.Relation<'oneToOne', 'api::category.category'>;
     content: Schema.Attribute.RichText;
     createdAt: Schema.Attribute.DateTime;
@@ -477,6 +477,7 @@ export interface ApiAuthorAuthor extends Struct.CollectionTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
+    articles: Schema.Attribute.Relation<'oneToMany', 'api::article.article'>;
     bio: Schema.Attribute.RichText;
     city: Schema.Attribute.String;
     createdAt: Schema.Attribute.DateTime;
@@ -592,6 +593,37 @@ export interface ApiHomePageHomePage extends Struct.SingleTypeSchema {
     podcastSection: Schema.Attribute.Component<'blocks.podcast-section', false>;
     popularArticles: Schema.Attribute.Component<
       'blocks.popular-articles',
+      false
+    >;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiMagazinePageMagazinePage extends Struct.SingleTypeSchema {
+  collectionName: 'magazine_pages';
+  info: {
+    displayName: 'Magazine Page';
+    pluralName: 'magazine-pages';
+    singularName: 'magazine-page';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::magazine-page.magazine-page'
+    > &
+      Schema.Attribute.Private;
+    magazinePageHeader: Schema.Attribute.Component<
+      'blocks.magazine-page-header',
       false
     >;
     publishedAt: Schema.Attribute.DateTime;
@@ -1151,6 +1183,7 @@ declare module '@strapi/strapi' {
       'api::category.category': ApiCategoryCategory;
       'api::global.global': ApiGlobalGlobal;
       'api::home-page.home-page': ApiHomePageHomePage;
+      'api::magazine-page.magazine-page': ApiMagazinePageMagazinePage;
       'api::podcast.podcast': ApiPodcastPodcast;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;

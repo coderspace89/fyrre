@@ -38,6 +38,12 @@
       "type": "component",
       "component": "elements.social-link",
       "repeatable": true
+    },
+    "articles": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::article.article",
+      "mappedBy": "author"
     }
   }
 }

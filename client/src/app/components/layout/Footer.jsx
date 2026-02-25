@@ -63,15 +63,15 @@ const Footer = () => {
       </div>
       <Container>
         <Row className={footerStyles.newsletterContainer}>
-          <Col lg={7}>
+          <Col lg={7} md={6}>
             <div>
               <h2 className={footerStyles.newsletterHeading}>
                 {footerData?.newsletterSection?.headline}
               </h2>
             </div>
           </Col>
-          <Col lg={5}>
-            <Form className="d-flex align-items-end justify-content-end">
+          <Col lg={5} md={6}>
+            <Form className="d-lg-flex align-items-lg-end justify-content-lg-end">
               <div className={footerStyles.inputContainer}>
                 <Form.Control
                   type="email"
@@ -94,15 +94,12 @@ const Footer = () => {
             </div>
           </Col>
           {footerData?.navigationColumns?.map((column) => (
-            <Col lg={4} key={column?.id}>
-              <div className="d-flex align-items-end justify-content-end">
+            <Col lg={4} md={4} xs={6} key={column?.id}>
+              <div className="d-flex align-items-lg-end justify-content-lg-end">
                 <ul className="list-unstyled">
                   {column.links.map((link) => (
                     <li key={link.id} className={footerStyles.linksContainer}>
-                      <Link
-                        href={link.url}
-                        className="text-decoration-none text-white"
-                      >
+                      <Link href={link.url} className={footerStyles.linkText}>
                         {link.text}
                       </Link>
                     </li>
@@ -112,13 +109,19 @@ const Footer = () => {
             </Col>
           ))}
         </Row>
-        <Row>
+        <Row className={footerStyles.copyrightContainer}>
           <Col lg={12}>
-            <div className="d-flex justify-content-between">
-              <span>{footerData?.copyrightText}</span>
-              <div>
+            <div className="d-flex justify-content-between align-items-center flex-lg-row flex-md-row flex-column">
+              <span className={footerStyles.copyrightText}>
+                {footerData?.copyrightText}
+              </span>
+              <div className="mt-lg-0 mt-md-0 mt-2">
                 {footerData?.socialLinks?.map((socialLink) => (
-                  <Link key={socialLink.id} href={socialLink.url}>
+                  <Link
+                    key={socialLink.id}
+                    href={socialLink.url}
+                    className={footerStyles.iconImageContainer}
+                  >
                     {socialLink.image && (
                       <Image
                         src={getStrapiMedia(socialLink.image.url)}

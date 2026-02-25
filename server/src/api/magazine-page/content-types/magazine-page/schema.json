@@ -1,0 +1,20 @@
+{
+  "kind": "singleType",
+  "collectionName": "magazine_pages",
+  "info": {
+    "singularName": "magazine-page",
+    "pluralName": "magazine-pages",
+    "displayName": "Magazine Page"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "magazinePageHeader": {
+      "type": "component",
+      "component": "blocks.magazine-page-header",
+      "repeatable": false
+    }
+  }
+}
