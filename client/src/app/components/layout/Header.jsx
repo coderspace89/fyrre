@@ -97,7 +97,10 @@ const Header = () => {
             <div className="d-flex justify-content-center">
               {pathname !== "/"
                 ? headerData?.socialLinks?.map((socialLink) => (
-                    <div key={socialLink.id}>
+                    <div
+                      key={socialLink.id}
+                      className={headerStyles.socialIconContainer}
+                    >
                       {socialLink?.image && (
                         <Link href={socialLink?.url}>
                           <Image

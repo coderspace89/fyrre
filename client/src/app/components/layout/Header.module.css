@@ -13,6 +13,10 @@
   height: 100%;
 }
 
+.socialIconContainer:last-child .socialIcon {
+  margin-right: 0;
+}
+
 .socialIcon {
   margin-right: 12px;
 }
