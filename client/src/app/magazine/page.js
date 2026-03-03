@@ -1,10 +1,10 @@
 import React from "react";
-import MagazinePageHeader from "../components/MagazinePageHeader";
+import MagazinePage from "../components/MagazinePage";
 
 const page = () => {
   return (
     <div>
-      <MagazinePageHeader />
+      <MagazinePage />
     </div>
   );
 };
