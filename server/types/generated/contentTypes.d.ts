@@ -633,6 +633,37 @@ export interface ApiMagazinePageMagazinePage extends Struct.SingleTypeSchema {
   };
 }
 
+export interface ApiMagazinePostPageMagazinePostPage
+  extends Struct.SingleTypeSchema {
+  collectionName: 'magazine_post_pages';
+  info: {
+    displayName: 'Magazine Post Page';
+    pluralName: 'magazine-post-pages';
+    singularName: 'magazine-post-page';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    goBackLink: Schema.Attribute.String;
+    goBackText: Schema.Attribute.String;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::magazine-post-page.magazine-post-page'
+    > &
+      Schema.Attribute.Private;
+    pageLabel: Schema.Attribute.String;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiPodcastPodcast extends Struct.CollectionTypeSchema {
   collectionName: 'podcasts';
   info: {
@@ -1184,6 +1215,7 @@ declare module '@strapi/strapi' {
       'api::global.global': ApiGlobalGlobal;
       'api::home-page.home-page': ApiHomePageHomePage;
       'api::magazine-page.magazine-page': ApiMagazinePageMagazinePage;
+      'api::magazine-post-page.magazine-post-page': ApiMagazinePostPageMagazinePostPage;
       'api::podcast.podcast': ApiPodcastPodcast;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;

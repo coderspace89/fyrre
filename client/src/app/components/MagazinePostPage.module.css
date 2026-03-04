@@ -1,0 +1,155 @@
+.container {
+  padding-top: 140px;
+  padding-bottom: 96px;
+}
+
+.detailsItem {
+  margin-right: 24px;
+  font-size: 14px;
+  color: #000;
+}
+
+.detailsItem span {
+  margin-right: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #000;
+}
+
+.description {
+  font-size: clamp(16px, 5vw, 18px);
+  color: #000;
+}
+
+.labelText {
+  font-size: 12px;
+  color: #000;
+  font-weight: 400;
+  text-transform: uppercase;
+}
+
+.labelContainer {
+  padding: 5px 10px;
+  border: 1px solid #000;
+  border-radius: 100px;
+  width: fit-content;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.descriptionContainer {
+  margin-bottom: 64px;
+}
+
+.mainTitle {
+  font-size: clamp(50px, 5vw, 104px);
+  font-weight: 600;
+  color: #000;
+}
+
+.featuredImage {
+  width: 100%;
+  height: 100%;
+}
+
+.featuredImageContainer {
+  margin-bottom: 96px;
+}
+
+.featuredTextContainer {
+  margin-bottom: 96px;
+}
+
+.articleInfoContainer {
+  margin-bottom: 32px;
+}
+
+.authorImage {
+  width: 80px;
+  height: 80px;
+  margin-right: 16px;
+}
+
+.postHeaderContainer {
+  margin-bottom: 96px;
+}
+
+.goBackText {
+  margin-left: 8px;
+  color: #000;
+  font-size: 16px;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.pageLabelText {
+  font-size: clamp(24px, 5vw, 32px);
+  color: #000;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.authorImageContainer {
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #000;
+  padding-bottom: 32px;
+  margin-bottom: 32px;
+}
+
+.authorTitle {
+  font-size: clamp(24px, 5vw, 32px);
+  color: #000;
+  font-weight: 600;
+}
+
+.authorListItems {
+  margin-bottom: 16px;
+}
+
+.authorListLabel {
+  font-size: 16px;
+  color: #000;
+  font-weight: 600;
+}
+
+.authorListText {
+  font-size: 16px;
+  color: #000;
+  font-weight: 400;
+}
+
+.socialLinksContainer img {
+  margin-right: 12px;
+}
+
+.socialLinksContainer a:last-child img {
+  margin-right: 0;
+}
+
+.markdownContainer h5 {
+  font-size: clamp(16px, 5vw, 20px);
+  color: #000;
+  font-weight: 500;
+  margin-bottom: 24px;
+}
+
+.markdownContainer p {
+  font-size: 16px;
+  color: #000;
+  font-weight: 400;
+  margin-bottom: 24px;
+}
+
+.markdownContainer h2 {
+  font-size: clamp(28px, 5vw, 48px);
+  color: #000;
+  font-weight: 600;
+  border-top: 1px solid #000;
+  border-bottom: 1px solid #000;
+  padding: 48px 0;
+  margin-top: 48px;
+  margin-bottom: 24px;
+}

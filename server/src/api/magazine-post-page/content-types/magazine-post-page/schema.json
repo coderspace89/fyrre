@@ -1,0 +1,24 @@
+{
+  "kind": "singleType",
+  "collectionName": "magazine_post_pages",
+  "info": {
+    "singularName": "magazine-post-page",
+    "pluralName": "magazine-post-pages",
+    "displayName": "Magazine Post Page"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "goBackText": {
+      "type": "string"
+    },
+    "goBackLink": {
+      "type": "string"
+    },
+    "pageLabel": {
+      "type": "string"
+    }
+  }
+}
