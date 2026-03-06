@@ -650,6 +650,10 @@ export interface ApiMagazinePostPageMagazinePostPage
       Schema.Attribute.Private;
     goBackLink: Schema.Attribute.String;
     goBackText: Schema.Attribute.String;
+    latestPostsSection: Schema.Attribute.Component<
+      'blocks.latest-posts-section',
+      false
+    >;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
@@ -657,6 +661,37 @@ export interface ApiMagazinePostPageMagazinePostPage
     > &
       Schema.Attribute.Private;
     pageLabel: Schema.Attribute.String;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiPodcastPagePodcastPage extends Struct.SingleTypeSchema {
+  collectionName: 'podcast_pages';
+  info: {
+    displayName: 'Podcast Page';
+    pluralName: 'podcast-pages';
+    singularName: 'podcast-page';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::podcast-page.podcast-page'
+    > &
+      Schema.Attribute.Private;
+    podcastPageHeader: Schema.Attribute.Component<
+      'blocks.podcast-page-header',
+      false
+    >;
     publishedAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -1216,6 +1251,7 @@ declare module '@strapi/strapi' {
       'api::home-page.home-page': ApiHomePageHomePage;
       'api::magazine-page.magazine-page': ApiMagazinePageMagazinePage;
       'api::magazine-post-page.magazine-post-page': ApiMagazinePostPageMagazinePostPage;
+      'api::podcast-page.podcast-page': ApiPodcastPagePodcastPage;
       'api::podcast.podcast': ApiPodcastPodcast;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;

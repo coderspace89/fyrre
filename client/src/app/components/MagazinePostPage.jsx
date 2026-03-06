@@ -17,6 +17,7 @@ const MagazinePostPage = ({ slug }) => {
 
   const [articlesData, setArticlesData] = useState([]);
   const [postHeader, setPostHeader] = useState(null);
+  const [latestArticlesData, setLatestArticlesData] = useState([]);
 
   const pathname = usePathname();
   const cleanedPath = pathname.replace(pathname, "/authors");
@@ -45,6 +46,49 @@ const MagazinePostPage = ({ slug }) => {
     encodeValuesOnly: true,
   });
 
+  // query for fetching latest posts
+  const numberOfPostsToShow = 3;
+  const excludeArticleId = articlesData?.map((article) => {
+    return article.id;
+  });
+
+  const currentArticleId = excludeArticleId.toString();
+
+  const LatestPostsQuery = qs.stringify(
+    {
+      filters: {
+        id: {
+          $ne: currentArticleId,
+        },
+      },
+      populate: {
+        image: true,
+        category: true,
+        author: true,
+      },
+      sort: ["publicationDate:desc"],
+      pagination: {
+        pageSize: numberOfPostsToShow,
+      },
+    },
+    {
+      encodeValuesOnly: true,
+      arrayFormat: "brackets",
+    },
+  );
+
+  const postHeaderQuery = qs.stringify(
+    {
+      populate: {
+        latestPostsSection: true,
+      },
+    },
+    {
+      encodeValuesOnly: true,
+      arrayFormat: "brackets",
+    },
+  );
+
   useEffect(() => {
     const fetchArticles = async () => {
       const response = await fetch(`/api/articles?${articlesQuery}`);
@@ -57,13 +101,26 @@ const MagazinePostPage = ({ slug }) => {
 
   useEffect(() => {
     const fetchPostHeader = async () => {
-      const response = await fetch("/api/magazine-post-page");
+      const response = await fetch(
+        `/api/magazine-post-page?${postHeaderQuery}`,
+      );
       const data = await response.json();
       console.log(data?.data);
       setPostHeader(data?.data);
     };
     fetchPostHeader();
   }, []);
+
+  // latest posts fetch
+  useEffect(() => {
+    const fetchLatestArticles = async () => {
+      const response = await fetch(`/api/articles?${LatestPostsQuery}`);
+      const data = await response.json();
+      console.log(data?.data);
+      setLatestArticlesData(data?.data || []);
+    };
+    fetchLatestArticles();
+  }, [currentArticleId]);
 
   return (
     <section className={magazinePostStyles.container}>
@@ -248,6 +305,98 @@ const MagazinePostPage = ({ slug }) => {
               </Row>
             ))}
           </Col>
+        </Row>
+      </Container>
+      <Container className={magazinePostStyles.latestArticleContainer}>
+        <Row className={magazinePostStyles.sectionTitleContainer}>
+          <Col lg={12}>
+            <div className="d-flex align-items-center justify-content-between">
+              <h2 className={magazinePostStyles.sectionTitle}>
+                {postHeader?.latestPostsSection?.sectionTitle}
+              </h2>
+              <Link
+                href={
+                  postHeader?.latestPostsSection?.viewAllLink || "/magazine"
+                }
+                className={magazinePostStyles.viewAllLink}
+              >
+                {postHeader?.latestPostsSection?.viewAllText}
+                <span>
+                  <svg
+                    width="16"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M16.172 11.0002L10.808 5.63617L12.222 4.22217L20 12.0002L12.222 19.7782L10.808 18.3642L16.172 13.0002H4V11.0002H16.172Z"
+                      fill="black"
+                    />
+                  </svg>
+                </span>
+              </Link>
+            </div>
+          </Col>
+        </Row>
+        <Row className={magazinePostStyles.articlesRowContainer}>
+          {latestArticlesData?.map((article) => (
+            <Col
+              key={article.id}
+              lg={4}
+              className={magazinePostStyles.articleCol}
+            >
+              <Link
+                href={article.slug}
+                className="text-decoration-none"
+                target="_blank"
+              >
+                <div className="d-flex justify-content-between align-items-center">
+                  <span className={magazinePostStyles.durationText}>
+                    {formatDate(article.publicationDate)}
+                  </span>
+                  <span className={magazinePostStyles.categoryText}>
+                    {article.category?.name}
+                  </span>
+                </div>
+                <div className={magazinePostStyles.articleImageContainer}>
+                  {article.image?.url && (
+                    <Image
+                      src={getStrapiMedia(article.image.url)}
+                      width={article.image.width}
+                      height={article.image.height}
+                      alt={article.image.alternativeText || article.title}
+                      className={magazinePostStyles.articleImage}
+                    />
+                  )}
+                </div>
+                <div>
+                  <h3 className={magazinePostStyles.articleTitle}>
+                    {article.title}
+                  </h3>
+                  <p className={magazinePostStyles.articleDescription}>
+                    {article.description}
+                  </p>
+                </div>
+                <div className="d-flex">
+                  <div className={magazinePostStyles.authorInfoContainer}>
+                    <span className={magazinePostStyles.authorLabel}>Text</span>
+                    <span className={magazinePostStyles.authorText}>
+                      {article.author?.fullName || article.author}
+                    </span>
+                  </div>
+                  <div className={magazinePostStyles.durationContainer}>
+                    <span className={magazinePostStyles.durationLabel}>
+                      Duration
+                    </span>
+                    <span className={magazinePostStyles.durationText}>
+                      {article.readTime}
+                    </span>
+                  </div>
+                </div>
+              </Link>
+            </Col>
+          ))}
         </Row>
       </Container>
     </section>

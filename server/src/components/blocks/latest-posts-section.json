@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_blocks_latest_posts_sections",
+  "info": {
+    "displayName": "Latest Posts Section"
+  },
+  "options": {},
+  "attributes": {
+    "sectionTitle": {
+      "type": "string"
+    },
+    "viewAllText": {
+      "type": "string"
+    },
+    "viewAllLink": {
+      "type": "string"
+    },
+    "numberOfPostsToShow": {
+      "type": "integer"
+    }
+  },
+  "config": {}
+}

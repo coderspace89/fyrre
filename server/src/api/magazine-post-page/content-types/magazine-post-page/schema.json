@@ -19,6 +19,11 @@
     },
     "pageLabel": {
       "type": "string"
+    },
+    "latestPostsSection": {
+      "type": "component",
+      "component": "blocks.latest-posts-section",
+      "repeatable": false
     }
   }
 }

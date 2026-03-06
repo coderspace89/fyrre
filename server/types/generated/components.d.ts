@@ -67,6 +67,19 @@ export interface BlocksHeroSection extends Struct.ComponentSchema {
   };
 }
 
+export interface BlocksLatestPostsSection extends Struct.ComponentSchema {
+  collectionName: 'components_blocks_latest_posts_sections';
+  info: {
+    displayName: 'Latest Posts Section';
+  };
+  attributes: {
+    numberOfPostsToShow: Schema.Attribute.Integer;
+    sectionTitle: Schema.Attribute.String;
+    viewAllLink: Schema.Attribute.String;
+    viewAllText: Schema.Attribute.String;
+  };
+}
+
 export interface BlocksMagazineAd extends Struct.ComponentSchema {
   collectionName: 'components_blocks_magazine_ads';
   info: {
@@ -124,6 +137,17 @@ export interface BlocksNewsletterSignup extends Struct.ComponentSchema {
     headline: Schema.Attribute.String;
     placeholderText: Schema.Attribute.String;
     title: Schema.Attribute.String;
+  };
+}
+
+export interface BlocksPodcastPageHeader extends Struct.ComponentSchema {
+  collectionName: 'components_blocks_podcast_page_headers';
+  info: {
+    displayName: 'Podcast Page Header';
+  };
+  attributes: {
+    image: Schema.Attribute.Media<'images'>;
+    pageTitle: Schema.Attribute.String;
   };
 }
 
@@ -242,10 +266,12 @@ declare module '@strapi/strapi' {
       'blocks.footer': BlocksFooter;
       'blocks.footer-newsletter': BlocksFooterNewsletter;
       'blocks.hero-section': BlocksHeroSection;
+      'blocks.latest-posts-section': BlocksLatestPostsSection;
       'blocks.magazine-ad': BlocksMagazineAd;
       'blocks.magazine-page-header': BlocksMagazinePageHeader;
       'blocks.news-ticker': BlocksNewsTicker;
       'blocks.newsletter-signup': BlocksNewsletterSignup;
+      'blocks.podcast-page-header': BlocksPodcastPageHeader;
       'blocks.podcast-section': BlocksPodcastSection;
       'blocks.popular-articles': BlocksPopularArticles;
       'elements.content-details': ElementsContentDetails;

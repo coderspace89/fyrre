@@ -1,0 +1,20 @@
+{
+  "kind": "singleType",
+  "collectionName": "podcast_pages",
+  "info": {
+    "singularName": "podcast-page",
+    "pluralName": "podcast-pages",
+    "displayName": "Podcast Page"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "podcastPageHeader": {
+      "type": "component",
+      "component": "blocks.podcast-page-header",
+      "repeatable": false
+    }
+  }
+}

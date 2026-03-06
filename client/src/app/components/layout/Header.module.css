@@ -45,4 +45,7 @@
   .navContainer {
     border: 0;
   }
+  .headerContainer {
+    padding-top: 0;
+  }
 }
