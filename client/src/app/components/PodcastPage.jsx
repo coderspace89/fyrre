@@ -76,6 +76,7 @@ const PodcastPage = () => {
                   width={sectionHeaderData?.image?.width}
                   height={sectionHeaderData?.image?.height}
                   alt={sectionHeaderData?.image?.name}
+                  className={podcastPageStyles.headerImage}
                 />
               )}
             </div>
