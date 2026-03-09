@@ -40,6 +40,12 @@
     "slug": {
       "type": "uid",
       "targetField": "title"
+    },
+    "content": {
+      "type": "richtext"
+    },
+    "description": {
+      "type": "text"
     }
   }
 }

@@ -699,6 +699,44 @@ export interface ApiPodcastPagePodcastPage extends Struct.SingleTypeSchema {
   };
 }
 
+export interface ApiPodcastPostPagePodcastPostPage
+  extends Struct.SingleTypeSchema {
+  collectionName: 'podcast_post_pages';
+  info: {
+    displayName: 'Podcast Post Page';
+    pluralName: 'podcast-post-pages';
+    singularName: 'podcast-post-page';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    goBackLink: Schema.Attribute.String;
+    goBackText: Schema.Attribute.String;
+    listenOnLabel: Schema.Attribute.String;
+    listenOnPlatforms: Schema.Attribute.Component<
+      'elements.podcast-platform-link',
+      true
+    >;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::podcast-post-page.podcast-post-page'
+    > &
+      Schema.Attribute.Private;
+    pageLabel: Schema.Attribute.String;
+    publishedAt: Schema.Attribute.DateTime;
+    shareLabel: Schema.Attribute.String;
+    shareOptions: Schema.Attribute.Component<'elements.social-link', true>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiPodcastPodcast extends Struct.CollectionTypeSchema {
   collectionName: 'podcasts';
   info: {
@@ -711,9 +749,11 @@ export interface ApiPodcastPodcast extends Struct.CollectionTypeSchema {
   };
   attributes: {
     audioFile: Schema.Attribute.Media<'audios'>;
+    content: Schema.Attribute.RichText;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    description: Schema.Attribute.Text;
     duration: Schema.Attribute.String;
     episodeNumber: Schema.Attribute.String;
     image: Schema.Attribute.Media<'images'>;
@@ -1252,6 +1292,7 @@ declare module '@strapi/strapi' {
       'api::magazine-page.magazine-page': ApiMagazinePageMagazinePage;
       'api::magazine-post-page.magazine-post-page': ApiMagazinePostPageMagazinePostPage;
       'api::podcast-page.podcast-page': ApiPodcastPagePodcastPage;
+      'api::podcast-post-page.podcast-post-page': ApiPodcastPostPagePodcastPostPage;
       'api::podcast.podcast': ApiPodcastPodcast;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;

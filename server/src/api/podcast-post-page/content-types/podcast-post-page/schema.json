@@ -1,0 +1,40 @@
+{
+  "kind": "singleType",
+  "collectionName": "podcast_post_pages",
+  "info": {
+    "singularName": "podcast-post-page",
+    "pluralName": "podcast-post-pages",
+    "displayName": "Podcast Post Page"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "goBackText": {
+      "type": "string"
+    },
+    "goBackLink": {
+      "type": "string"
+    },
+    "pageLabel": {
+      "type": "string"
+    },
+    "listenOnLabel": {
+      "type": "string"
+    },
+    "shareLabel": {
+      "type": "string"
+    },
+    "listenOnPlatforms": {
+      "type": "component",
+      "component": "elements.podcast-platform-link",
+      "repeatable": true
+    },
+    "shareOptions": {
+      "type": "component",
+      "component": "elements.social-link",
+      "repeatable": true
+    }
+  }
+}

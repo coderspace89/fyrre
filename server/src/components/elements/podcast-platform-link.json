@@ -1,0 +1,23 @@
+{
+  "collectionName": "components_elements_podcast_platform_links",
+  "info": {
+    "displayName": "Podcast Platform Link"
+  },
+  "options": {},
+  "attributes": {
+    "platformName": {
+      "type": "string"
+    },
+    "url": {
+      "type": "string"
+    },
+    "icon": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
+    }
+  },
+  "config": {}
+}

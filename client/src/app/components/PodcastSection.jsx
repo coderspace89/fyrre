@@ -31,7 +31,7 @@ const PodcastSection = () => {
         image: true,
         audioFile: true,
       },
-      sort: ["publicationDate:asc"],
+      sort: ["createdAt:asc"],
       pagination: {
         page: 1,
         pageSize: 3,

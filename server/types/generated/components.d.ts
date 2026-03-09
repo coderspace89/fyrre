@@ -222,6 +222,18 @@ export interface ElementsLinkColumnItem extends Struct.ComponentSchema {
   };
 }
 
+export interface ElementsPodcastPlatformLink extends Struct.ComponentSchema {
+  collectionName: 'components_elements_podcast_platform_links';
+  info: {
+    displayName: 'Podcast Platform Link';
+  };
+  attributes: {
+    icon: Schema.Attribute.Media<'images'>;
+    platformName: Schema.Attribute.String;
+    url: Schema.Attribute.String;
+  };
+}
+
 export interface ElementsSocialLink extends Struct.ComponentSchema {
   collectionName: 'components_elements_social_links';
   info: {
@@ -278,6 +290,7 @@ declare module '@strapi/strapi' {
       'elements.link': ElementsLink;
       'elements.link-column': ElementsLinkColumn;
       'elements.link-column-item': ElementsLinkColumnItem;
+      'elements.podcast-platform-link': ElementsPodcastPlatformLink;
       'elements.social-link': ElementsSocialLink;
       'elements.ticker-item': ElementsTickerItem;
       'layout.header': LayoutHeader;
