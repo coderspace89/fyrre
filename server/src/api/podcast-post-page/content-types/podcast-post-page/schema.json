@@ -35,6 +35,11 @@
       "type": "component",
       "component": "elements.social-link",
       "repeatable": true
+    },
+    "latestEpisodesSection": {
+      "type": "component",
+      "component": "blocks.latest-episodes-section",
+      "repeatable": false
     }
   }
 }

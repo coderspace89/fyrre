@@ -12,6 +12,17 @@ export interface BlocksAuthorSection extends Struct.ComponentSchema {
   };
 }
 
+export interface BlocksAuthorsPageHeader extends Struct.ComponentSchema {
+  collectionName: 'components_blocks_authors_page_headers';
+  info: {
+    displayName: 'Authors Page Header';
+  };
+  attributes: {
+    image: Schema.Attribute.Media<'images'>;
+    pageTitle: Schema.Attribute.String;
+  };
+}
+
 export interface BlocksFeaturedContentSection extends Struct.ComponentSchema {
   collectionName: 'components_blocks_featured_content_sections';
   info: {
@@ -64,6 +75,19 @@ export interface BlocksHeroSection extends Struct.ComponentSchema {
     image: Schema.Attribute.Media<'images'>;
     newsTicker: Schema.Attribute.Component<'blocks.news-ticker', false>;
     title: Schema.Attribute.String;
+  };
+}
+
+export interface BlocksLatestEpisodesSection extends Struct.ComponentSchema {
+  collectionName: 'components_blocks_latest_episodes_sections';
+  info: {
+    displayName: 'Latest Episodes Section';
+  };
+  attributes: {
+    numberOfEpisodesToShow: Schema.Attribute.Integer;
+    sectionTitle: Schema.Attribute.String;
+    viewAllLink: Schema.Attribute.String;
+    viewAllText: Schema.Attribute.String;
   };
 }
 
@@ -274,10 +298,12 @@ declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
       'blocks.author-section': BlocksAuthorSection;
+      'blocks.authors-page-header': BlocksAuthorsPageHeader;
       'blocks.featured-content-section': BlocksFeaturedContentSection;
       'blocks.footer': BlocksFooter;
       'blocks.footer-newsletter': BlocksFooterNewsletter;
       'blocks.hero-section': BlocksHeroSection;
+      'blocks.latest-episodes-section': BlocksLatestEpisodesSection;
       'blocks.latest-posts-section': BlocksLatestPostsSection;
       'blocks.magazine-ad': BlocksMagazineAd;
       'blocks.magazine-page-header': BlocksMagazinePageHeader;

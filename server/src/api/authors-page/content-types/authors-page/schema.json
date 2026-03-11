@@ -1,0 +1,23 @@
+{
+  "kind": "singleType",
+  "collectionName": "authors_pages",
+  "info": {
+    "singularName": "authors-page",
+    "pluralName": "authors-pages",
+    "displayName": "Authors Page"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "authorsPageHeader": {
+      "type": "component",
+      "component": "blocks.authors-page-header",
+      "repeatable": false
+    },
+    "aboutLinkText": {
+      "type": "string"
+    }
+  }
+}

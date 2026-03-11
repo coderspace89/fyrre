@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_blocks_latest_episodes_sections",
+  "info": {
+    "displayName": "Latest Episodes Section"
+  },
+  "options": {},
+  "attributes": {
+    "sectionTitle": {
+      "type": "string"
+    },
+    "viewAllText": {
+      "type": "string"
+    },
+    "viewAllLink": {
+      "type": "string"
+    },
+    "numberOfEpisodesToShow": {
+      "type": "integer"
+    }
+  },
+  "config": {}
+}

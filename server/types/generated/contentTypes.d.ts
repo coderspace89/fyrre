@@ -501,6 +501,38 @@ export interface ApiAuthorAuthor extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiAuthorsPageAuthorsPage extends Struct.SingleTypeSchema {
+  collectionName: 'authors_pages';
+  info: {
+    displayName: 'Authors Page';
+    pluralName: 'authors-pages';
+    singularName: 'authors-page';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    aboutLinkText: Schema.Attribute.String;
+    authorsPageHeader: Schema.Attribute.Component<
+      'blocks.authors-page-header',
+      false
+    >;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::authors-page.authors-page'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiCategoryCategory extends Struct.CollectionTypeSchema {
   collectionName: 'categories';
   info: {
@@ -716,6 +748,10 @@ export interface ApiPodcastPostPagePodcastPostPage
       Schema.Attribute.Private;
     goBackLink: Schema.Attribute.String;
     goBackText: Schema.Attribute.String;
+    latestEpisodesSection: Schema.Attribute.Component<
+      'blocks.latest-episodes-section',
+      false
+    >;
     listenOnLabel: Schema.Attribute.String;
     listenOnPlatforms: Schema.Attribute.Component<
       'elements.podcast-platform-link',
@@ -1286,6 +1322,7 @@ declare module '@strapi/strapi' {
       'admin::user': AdminUser;
       'api::article.article': ApiArticleArticle;
       'api::author.author': ApiAuthorAuthor;
+      'api::authors-page.authors-page': ApiAuthorsPageAuthorsPage;
       'api::category.category': ApiCategoryCategory;
       'api::global.global': ApiGlobalGlobal;
       'api::home-page.home-page': ApiHomePageHomePage;

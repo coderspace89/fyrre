@@ -9,12 +9,14 @@ import qs from "qs";
 import { getStrapiMedia, formatDate } from "@/lib/utils";
 import Link from "next/link";
 import Image from "next/image";
-import { usePathname } from "next/navigation";
 import ReactMarkdown from "react-markdown";
 
 const PodcastPostPage = ({ slug }) => {
+  const postSlug = slug;
+
   const [headerSideData, setHeaderSideData] = useState(null);
-  const [podcastPostData, setPodcastPostData] = useState(null);
+  const [podcastPostData, setPodcastPostData] = useState([]);
+  const [latestEpisodeData, setLatestEpisodeData] = useState([]);
 
   const headerSideQuery = qs.stringify(
     {
@@ -25,6 +27,7 @@ const PodcastPostPage = ({ slug }) => {
         shareOptions: {
           populate: ["image"],
         },
+        latestEpisodesSection: true,
       },
     },
     {
@@ -37,15 +40,43 @@ const PodcastPostPage = ({ slug }) => {
     {
       filters: {
         slug: {
-          $eq: slug,
+          $eq: postSlug,
         },
       },
       populate: {
         image: true,
         audioFile: true,
       },
-      // If you also had "LATEST POSTS" or similar on the episode page, you'd populate that component here:
-      // latestEpisodesSection: true,
+    },
+    {
+      encodeValuesOnly: true,
+      arrayFormat: "brackets",
+    },
+  );
+
+  // query for fetching latest episodes
+  const numberOfEpisodesToShow = 3;
+  const excludeEpisodeId = podcastPostData?.map((episode) => {
+    return episode.id;
+  });
+
+  const currentEpisodeId = excludeEpisodeId.toString();
+
+  const LatestEpisodesQuery = qs.stringify(
+    {
+      filters: {
+        id: {
+          $ne: currentEpisodeId,
+        },
+      },
+      populate: {
+        image: true,
+        audioFile: true,
+      },
+      sort: ["createdAt:asc"],
+      pagination: {
+        pageSize: numberOfEpisodesToShow,
+      },
     },
     {
       encodeValuesOnly: true,
@@ -72,6 +103,17 @@ const PodcastPostPage = ({ slug }) => {
     };
     fetchPodcastPostData();
   }, []);
+
+  // latest episodes fetch
+  useEffect(() => {
+    const fetchLatestEpisodesData = async () => {
+      const response = await fetch(`/api/podcasts?${LatestEpisodesQuery}`);
+      const data = await response.json();
+      console.log(data?.data);
+      setLatestEpisodeData(data?.data);
+    };
+    fetchLatestEpisodesData();
+  }, [currentEpisodeId]);
 
   return (
     <section className={podcastPostPageStyles.container}>
@@ -289,6 +331,133 @@ const PodcastPostPage = ({ slug }) => {
               </Row>
             ))}
           </Col>
+        </Row>
+      </Container>
+      <Container className={podcastPostPageStyles.containerRow}>
+        <Row className={podcastPostPageStyles.sectionTitleContainer}>
+          <Col lg={12}>
+            <div className="d-flex align-items-center justify-content-between">
+              <h2 className={podcastPostPageStyles.sectionTitle}>
+                {headerSideData?.latestEpisodesSection?.sectionTitle}
+              </h2>
+              <Link
+                href={
+                  headerSideData?.latestEpisodesSection?.viewAllLink ||
+                  "/podcast"
+                }
+                className={podcastPostPageStyles.viewAllLink}
+              >
+                {headerSideData?.latestEpisodesSection?.viewAllText}
+                <span>
+                  <svg
+                    width="16"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M16.172 11.0002L10.808 5.63617L12.222 4.22217L20 12.0002L12.222 19.7782L10.808 18.3642L16.172 13.0002H4V11.0002H16.172Z"
+                      fill="black"
+                    />
+                  </svg>
+                </span>
+              </Link>
+            </div>
+          </Col>
+        </Row>
+        <Row>
+          {latestEpisodeData?.map((podcast) => (
+            <Col
+              lg={4}
+              key={podcast.id}
+              className={podcastPostPageStyles.podcastCard}
+            >
+              <div>
+                <Link
+                  href={podcast?.slug}
+                  className="text-decoration-none"
+                  target="_blank"
+                >
+                  <div className={podcastPostPageStyles.podcastImageContainer}>
+                    {podcast?.image && (
+                      <Image
+                        src={getStrapiMedia(podcast.image?.url)}
+                        width={podcast?.image?.width}
+                        height={podcast?.image?.height}
+                        alt={podcast?.image?.name}
+                        className={podcastPostPageStyles.podcastImage}
+                      />
+                    )}
+                    <div
+                      className={`${podcastPostPageStyles.imageTextContainer} position-absolute top-0 start-0`}
+                    >
+                      <h2 className={podcastPostPageStyles.imageHeading}>
+                        Fyrre
+                      </h2>
+                      <h4 className={podcastPostPageStyles.imageSubheading}>
+                        Podcast
+                      </h4>
+                    </div>
+                    <div
+                      className={`${podcastPostPageStyles.imageTextContainer} position-absolute bottom-0 start-0`}
+                    >
+                      <span className={podcastPostPageStyles.episodeText}>
+                        {podcast?.episodeNumber}
+                      </span>
+                    </div>
+                    <div
+                      className={`${podcastPostPageStyles.imageTextContainer} position-absolute bottom-0 end-0`}
+                    >
+                      <svg
+                        width="51"
+                        height="51"
+                        viewBox="0 0 51 51"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <rect
+                          y="47.314"
+                          width="50.7325"
+                          height="3.38217"
+                          fill="white"
+                        />
+                        <rect
+                          x="47.3135"
+                          width="3.38217"
+                          height="50.7325"
+                          fill="white"
+                        />
+                        <rect
+                          x="4.06982"
+                          y="6.61377"
+                          width="3.38217"
+                          height="62.5559"
+                          transform="rotate(-45 4.06982 6.61377)"
+                          fill="white"
+                        />
+                      </svg>
+                    </div>
+                  </div>
+                  <div>
+                    <h3 className={podcastPostPageStyles.podcastTitle}>
+                      {podcast?.title}
+                    </h3>
+                  </div>
+                  <div>
+                    <span className={podcastPostPageStyles.dateTextContainer}>
+                      <span>Date</span> {formatDate(podcast?.publicationDate)}
+                    </span>
+                    <span
+                      className={podcastPostPageStyles.durationTextContainer}
+                    >
+                      <span>Duration</span> {podcast?.duration}
+                    </span>
+                  </div>
+                </Link>
+              </div>
+            </Col>
+          ))}
         </Row>
       </Container>
     </section>
