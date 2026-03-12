@@ -1,0 +1,27 @@
+{
+  "kind": "singleType",
+  "collectionName": "author_post_pages",
+  "info": {
+    "singularName": "author-post-page",
+    "pluralName": "author-post-pages",
+    "displayName": "Authors Post Page"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "goBackText": {
+      "type": "string"
+    },
+    "goBackLink": {
+      "type": "string"
+    },
+    "pageLabel": {
+      "type": "string"
+    },
+    "followLabel": {
+      "type": "string"
+    }
+  }
+}

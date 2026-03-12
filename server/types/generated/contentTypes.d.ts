@@ -466,6 +466,38 @@ export interface ApiArticleArticle extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiAuthorPostPageAuthorPostPage
+  extends Struct.SingleTypeSchema {
+  collectionName: 'author_post_pages';
+  info: {
+    displayName: 'Authors Post Page';
+    pluralName: 'author-post-pages';
+    singularName: 'author-post-page';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    followLabel: Schema.Attribute.String;
+    goBackLink: Schema.Attribute.String;
+    goBackText: Schema.Attribute.String;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::author-post-page.author-post-page'
+    > &
+      Schema.Attribute.Private;
+    pageLabel: Schema.Attribute.String;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiAuthorAuthor extends Struct.CollectionTypeSchema {
   collectionName: 'authors';
   info: {
@@ -1321,6 +1353,7 @@ declare module '@strapi/strapi' {
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'admin::user': AdminUser;
       'api::article.article': ApiArticleArticle;
+      'api::author-post-page.author-post-page': ApiAuthorPostPageAuthorPostPage;
       'api::author.author': ApiAuthorAuthor;
       'api::authors-page.authors-page': ApiAuthorsPageAuthorsPage;
       'api::category.category': ApiCategoryCategory;
