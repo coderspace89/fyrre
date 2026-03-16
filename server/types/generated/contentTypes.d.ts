@@ -470,7 +470,7 @@ export interface ApiAuthorPostPageAuthorPostPage
   extends Struct.SingleTypeSchema {
   collectionName: 'author_post_pages';
   info: {
-    displayName: 'Authors Post Page';
+    displayName: 'Author Post Page';
     pluralName: 'author-post-pages';
     singularName: 'author-post-page';
   };
