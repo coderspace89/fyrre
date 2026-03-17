@@ -171,6 +171,7 @@ const AuthorsPostPage = ({ slug }) => {
                     <Link
                       href={`${cleanedPath}/${article.slug}`}
                       className="text-decoration-none"
+                      target="_blank"
                     >
                       <div className="d-flex align-items-center">
                         <div>
